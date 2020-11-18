@@ -1,4 +1,4 @@
-# Default values for do500.
+# Default values for holden-do500.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -8,13 +8,13 @@ prefix: ""
 gitlab_app_name: "gitlab-ce"
 
 namespaces:
-  - name: do500-workspaces
-  - name: do500-gitlab
-  - name: do500-slides
+  - name: holden-do500-workspaces
+  - name: holden-do500-gitlab
+  - name: holden-do500-slides
 
 operators:
   - name: codeready-workspaces
-    namespace: do500-workspaces
+    namespace: holden-do500-workspaces
     subscription:
       channel: latest
       approval: Automatic
@@ -26,7 +26,7 @@ operators:
       create: true
 
 gitlab:
-  namespace: do500-gitlab
+  namespace: holden-do500-gitlab
   root_password: Password123
   imagestreams:
     - name: "gitlab-ce"
@@ -37,14 +37,14 @@ gitlab:
       stream_uri: "redis:5.0.4-alpine"
 
 crw:
-  namespace: do500-workspaces
+  namespace: holden-do500-workspaces
   name: "codeready-workspaces"
   devRegImage: "quay.io/rht-labs/devfileregistry:test"
   tlsSupport: true
 
 docs:
-  name: do500-slides
-  namespace: do500-slides 
+  name: holden-do500-slides
+  namespace: holden-do500-slides 
   build:
     source_context_dir: "slides"
     source_repo: "https://github.com/rht-labs/enablement-docs"
